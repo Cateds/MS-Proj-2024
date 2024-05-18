@@ -45,7 +45,7 @@ private:
         DisplayTest = 0b1111
     };
 
-    int SPI_Freq = 100000;
+    int SPI_Freq = 1000000;
 
     #ifdef _Matrix_8_Using_Simulated_SPI_
     DigitalOut mosi,clk;

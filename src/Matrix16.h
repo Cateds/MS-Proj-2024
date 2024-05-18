@@ -23,7 +23,7 @@ private:
     };
 
 
-    int SPI_Freq = 100000;
+    int SPI_Freq = 1000000;
 
     #ifdef _Matrix_16_Using_Simulated_SPI_
     DigitalOut clk,mosi;
