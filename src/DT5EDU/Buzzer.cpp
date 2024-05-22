@@ -28,7 +28,7 @@ std::unordered_map<Tune,int> Tune2Freq = {
 
 buzzer & buzzer::SetTune(Tune tune_input) {
     if (tune_input == Tune::Pause) {
-        IO.write(1.f);
+        IO.write(0.f);
     }
     else if (tune_input != Tune::Sustain) {
         IO.period(1.f/(Tune2Freq[tune_input]));
@@ -56,6 +56,16 @@ buzzer & buzzer::PlayMusic(const vector<pair<Tune,float>> &Music, float NotePerM
     SetTune();
     return *this;
 };
+
+buzzer & buzzer::PlayMusic(const vector<pair<Tune,float>> &Music, float NotePerMin, Ticker &tkr) {
+    auto delay_time = 60000/NotePerMin;
+    auto b = Music.begin();
+    tkr.attach([&tkr,&delay_time] (void) {
+        static int i;
+
+    },delay_time * Music[0].second);
+    return *this;
+}
 
 buzzer & buzzer::DemoMusic_1(void) {
     std::vector<Tune> music = {

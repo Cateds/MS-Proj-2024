@@ -1,6 +1,6 @@
 #include "Matrix16.h"
 
-#define _CATEDS_My_Board_Is_Designed_Wrongly_
+// #define _CATEDS_My_Board_Is_Designed_Wrongly_
 
 namespace DT5EDU {
 
@@ -102,10 +102,10 @@ matrix_16 & matrix_16::operator<<(const frame &data) {
     return SendBuffer();
 }
 
-matrix_16::frame changeFrame(const matrix_16::frame &data, Rotation operation) {
+matrix_16::frame changeFrame(const matrix_16::frame &data, int operation) {
     matrix_16::frame RetVal = {0};
     switch (operation) {
-    case Clkwse_0: break;
+    case Clkwse_0: RetVal = data; break;
     case Clkwse_90:
         for (int row=0; row<16; row++)
             for (int i=0; i<16; i++)
@@ -140,7 +140,9 @@ matrix_16::frame changeFrame(const matrix_16::frame &data, Rotation operation) {
         for (int i=0; i<16; i++)
             RetVal[15-i] = data[i];
         break;
-    default: break;
+    default: 
+        RetVal = data;
+        break;
     };
     return RetVal;
 }

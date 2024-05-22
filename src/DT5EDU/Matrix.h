@@ -116,9 +116,9 @@ public:
     using frame = array<uint8_t,8>;
 
     /**
-     * @brief  Display one frame oon the matrix_8. This function would send the buffer automatically.
+     * @brief  Display one frame on the matrix_8. This function would send the buffer automatically.
      * 
-     * @param data the frame of the display you want wo display in the type of array<uint8-t,8>
+     * @param data the frame of the display you want wo display in the type of array<uint8_t,8>
      * @return matrix_8&  The reference of the object itself.
      */
     matrix_8 & operator<<(const frame &data);
