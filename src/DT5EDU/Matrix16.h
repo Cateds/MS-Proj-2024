@@ -195,7 +195,7 @@ public:
      *             true or 1: Turn on the Shutdown mode. 
      *             false or 0: Turn off the Shutdown mode. 
      * @return matrix_16&  The reference of the object itself.
-     */
+     */  
     matrix_16 & Set_Shutdown(bool mode);
     /**
      * @brief Check if the matrix_16 is in Shutdown mode.

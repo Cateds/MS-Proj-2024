@@ -57,16 +57,6 @@ buzzer & buzzer::PlayMusic(const vector<pair<Tune,float>> &Music, float NotePerM
     return *this;
 };
 
-buzzer & buzzer::PlayMusic(const vector<pair<Tune,float>> &Music, float NotePerMin, Ticker &tkr) {
-    auto delay_time = 60000/NotePerMin;
-    auto b = Music.begin();
-    tkr.attach([&tkr,&delay_time] (void) {
-        static int i;
-
-    },delay_time * Music[0].second);
-    return *this;
-}
-
 buzzer & buzzer::DemoMusic_1(void) {
     std::vector<Tune> music = {
         Tune::C4,Tune::C4,Tune::G4,Tune::G4,Tune::A4,Tune::A4,Tune::G4,Tune::Pause,
